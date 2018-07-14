@@ -51,15 +51,4 @@ context('Querying', () => {
     })
   })
 
-  it('cy.root() - query the root DOM element', () => {
-    // https://on.cypress.io/root
-
-    // By default, root is the document
-    cy.root().should('match', 'html')
-
-    cy.get('.query-ul').within(() => {
-      // In this within, the root is now the ul DOM element
-      cy.root().should('have.class', 'query-ul')
-    })
-  })
 })
