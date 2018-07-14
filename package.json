@@ -1,0 +1,27 @@
+{
+  "name": "cypress-capybara",
+  "version": "0.0.1",
+  "description": "Capybara API ported as Cypress commands",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/testdouble/cypress-capyabara.git"
+  },
+  "keywords": [
+    "Cypress",
+    "Capybara"
+  ],
+  "author": "Justin Searls <searls@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/testdouble/cypress-capyabara/issues"
+  },
+  "homepage": "https://github.com/testdouble/cypress-capyabara#readme",
+  "devDependencies": {
+    "cypress": "^3.0.2",
+    "standard": "^11.0.1"
+  }
+}
