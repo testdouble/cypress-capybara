@@ -48,7 +48,7 @@ context('Navigation', () => {
       },
       onLoad (contentWindow) {
         // contentWindow is the remote page's window object
-      },
+      }
     })
-    })
+  })
 })

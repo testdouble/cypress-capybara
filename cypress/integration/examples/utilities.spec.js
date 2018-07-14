@@ -31,26 +31,25 @@ context('Utilities', () => {
     // https://github.com/nolanlawson/blob-util#imgSrcToDataURL
     // get the dataUrl string for the javascript-logo
       Cypress.Blob.imgSrcToDataURL('https://example.cypress.io/assets/img/javascript-logo.png', undefined, 'anonymous')
-      .then((dataUrl) => {
+        .then((dataUrl) => {
         // create an <img> element and set its src to the dataUrl
-        let img = Cypress.$('<img />', { src: dataUrl })
-        // need to explicitly return cy here since we are initially returning
-        // the Cypress.Blob.imgSrcToDataURL promise to our test
-        // append the image
-        $div.append(img)
+          let img = Cypress.$('<img />', { src: dataUrl })
+          // need to explicitly return cy here since we are initially returning
+          // the Cypress.Blob.imgSrcToDataURL promise to our test
+          // append the image
+          $div.append(img)
 
-        cy.get('.utility-blob img').click()
-          .should('have.attr', 'src', dataUrl)
-      }))
+          cy.get('.utility-blob img').click()
+            .should('have.attr', 'src', dataUrl)
+        }))
   })
 
   it('Cypress.minimatch - test out glob patterns against strings', () => {
     // https://on.cypress.io/minimatch
     Cypress.minimatch('/users/1/comments', '/users/*/comments', {
-      matchBase: true,
+      matchBase: true
     })
   })
-
 
   it('Cypress.moment() - format or parse dates using a moment method', () => {
     // https://on.cypress.io/moment
@@ -59,7 +58,6 @@ context('Utilities', () => {
     cy.get('.utility-moment').contains('3:38 PM')
       .should('have.class', 'badge')
   })
-
 
   it('Cypress.Promise - instantiate a bluebird promise', () => {
     // https://on.cypress.io/promise

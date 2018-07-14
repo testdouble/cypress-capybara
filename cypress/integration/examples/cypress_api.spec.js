@@ -9,7 +9,7 @@ context('Cypress.Commands', () => {
 
   it('.add() - create a custom command', () => {
     Cypress.Commands.add('console', {
-      prevSubject: true,
+      prevSubject: true
     }, (subject, method) => {
       // the previous subject is automatically received
       // and the commands arguments are shifted
@@ -31,7 +31,6 @@ context('Cypress.Commands', () => {
     })
   })
 })
-
 
 context('Cypress.Cookies', () => {
   beforeEach(() => {
@@ -65,11 +64,10 @@ context('Cypress.Cookies', () => {
     // now any cookie with the name 'session_id' will
     // not be cleared before each new test runs
     Cypress.Cookies.defaults({
-      whitelist: 'session_id',
+      whitelist: 'session_id'
     })
   })
 })
-
 
 context('Cypress.Server', () => {
   beforeEach(() => {
@@ -86,7 +84,7 @@ context('Cypress.Server', () => {
       force404: false,
       whitelist (xhr) {
         // handle custom logic for whitelisting
-      },
+      }
     })
   })
 })
@@ -161,7 +159,7 @@ context('Cypress.env()', () => {
     // set multiple environment variables
     Cypress.env({
       host: 'veronica.dev.local',
-      api_server: 'http://localhost:8888/v1/',
+      api_server: 'http://localhost:8888/v1/'
     })
 
     // get environment variable
@@ -186,7 +184,6 @@ context('Cypress.log', () => {
     // https://on.cypress.io/cypress-log
   })
 })
-
 
 context('Cypress.platform', () => {
   beforeEach(() => {

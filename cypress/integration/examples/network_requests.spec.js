@@ -37,7 +37,7 @@ context('Network Requests', () => {
       method: 'POST',
       delay: 1000,
       status: 422,
-      response: {},
+      response: {}
     })
 
     // any route commands will now inherit the above options
@@ -93,7 +93,7 @@ context('Network Requests', () => {
       url: 'comments/*',
       status: 404,
       response: { error: message },
-      delay: 500,
+      delay: 500
     }).as('putComment')
 
     // we have code that puts a comment when
