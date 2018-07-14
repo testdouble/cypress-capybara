@@ -50,5 +50,4 @@ context('Querying', () => {
       cy.get('input:last').should('have.attr', 'placeholder', 'Password')
     })
   })
-
 })
