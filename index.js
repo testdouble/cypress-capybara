@@ -1,59 +1,32 @@
-const escape = (value) => {
-  return value ? value.replace(/"/g,'\\"') : value
-}
-
-const css = (locators, ...replacements) => {
-  return {
-    format: (options) => {
-      let s = ''
-      locators.forEach((locator, i) => {
-        s += locator.replace(/\s+/g,'') + (escape(options[replacements[i]]) || '')
-      })
-      return s
-    }
-  }
-}
-
-const buildCommand = ({name, type, locatorTemplate}) => {
-  return {
-    name,
-    command (locator, options = {}) {
-      const selector = locatorTemplate.format({locator})
-      return cy.get(selector, {
-        log: false,
-        timeout: options.wait
-      }).__cypress_capybara_log(name, locator, selector)
-    }
-  }
-}
+const logCommand = require('./lib/log-command')
+const buildCommand = require('./lib/build-command')
+const stringTemplates = require('./lib/string-templates')
 
 module.exports = {
   commands: [
-    {
-      name: "__cypress_capybara_log",
-      options: {type: 'utility', prevSubject: 'optional'},
-      command ($el, commandName, locator, selector) {
-        Cypress.log({
-          name: commandName,
-          $el,
-          message: locator,
-          consoleProps () {
-            // Mirror implementation from Cypress: https://is.gd/cypress_log
-            return {
-              Command: commandName,
-              Yielded: $el && $el.length > 0 ? Cypress.dom.getElements($el) : '--nothing--',
-              Elements: $el ? $el.length : 0,
-              Selector: selector,
-              Locator: locator
-            }
-          }
-        })
-      }
-    },
+    logCommand,
+    buildCommand({
+      name: 'findField',
+      type: 'finder',
+      locatorTemplate: stringTemplates.css`
+        input[type!=submit][type!=image][type!=hidden][id="${'locator'}"],
+        input[type!=submit][type!=image][type!=hidden][name="${'locator'}"],
+        textarea[id="${'locator'}"],
+        textarea[name="${'locator'}"],
+        select[id="${'locator'}"],
+        select[name="${'locator'}"],
+        label:contains("${'locator'}")
+      `,
+      labelTemplate: stringTemplates.css`
+        input[id="${'id'}"],
+        textarea[id="${'id'}"],
+        select[id="${'id'}"]
+      `
+    }),
     buildCommand({
       name: 'findButton',
       type: 'finder',
-      locatorTemplate: css`
+      locatorTemplate: stringTemplates.css`
         button:contains("${'locator'}"),
         button[id="${'locator'}"],
         button[title*="${'locator'}"],
