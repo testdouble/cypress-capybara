@@ -1,5 +1,7 @@
 # cypress-capybara
 
+[![CircleCI](https://circleci.com/gh/testdouble/cypress-capybara/tree/master.svg?style=svg)](https://circleci.com/gh/testdouble/cypress-capybara/tree/master)
+
 An abbreviated port of [Capybara](https://github.com/teamcapybara/capybara)'s
 finder methods, reimplemented as custom [Cypress](https://cypress.io) commands.
 
