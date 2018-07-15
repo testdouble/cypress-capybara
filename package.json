@@ -1,6 +1,6 @@
 {
   "name": "cypress-capybara",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Capybara finders re-implemented as custom Cypress commands",
   "main": "index.js",
   "scripts": {
