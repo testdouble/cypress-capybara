@@ -44,5 +44,4 @@ context('cypress-capybara', () => {
     cy.findButton('Button #7').should('have.attr', 'type', 'button')
     cy.findButton('Button #6').should('not.exist')
   })
-
 })
