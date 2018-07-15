@@ -1,8 +1,15 @@
-/// <reference types="Cypress" />
-
-context('Querying', () => {
+context('cypress-capybara', () => {
   beforeEach(() => {
     cy.visit('/commands/querying')
+  })
+
+  it('cy.findLink() - see https://www.rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Finders#find_link-instance_method', () => {
+    cy.findLink('great link!').should('have.attr', 'id', 'link-1')
+    cy.findLink('link-1').should('have.attr', 'id', 'link-1')
+    cy.findLink('link-2').should('have.attr', 'id', 'link-2')
+    cy.findLink('I am').should('have.attr', 'id', 'link-2')
+    cy.findLink('just some').should('have.attr', 'id', 'link-2')
+    cy.findLink('just some text').should('have.attr', 'id', 'link-2')
   })
 
   it('cy.findField() - see https://www.rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Finders#find_field-instance_method', () => {
@@ -25,6 +32,7 @@ context('Querying', () => {
   it('cy.findButton() - see https://www.rubydoc.info/github/teamcapybara/capybara/master/Capybara/Node/Finders#find_button-instance_method', () => {
     cy.findButton('Button').should('contain', 'Button')
     cy.findButton('query-btn').should('contain', 'Button')
+    cy.findButton('query-btn').click()
     cy.findButton('Button "#2"').should('exist')
     cy.findButton('great button').should('contain', 'Button "#2"')
     cy.findButton('Button #3').should('have.attr', 'type', 'submit')

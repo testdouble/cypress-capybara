@@ -6,6 +6,14 @@ module.exports = {
   commands: [
     logCommand,
     buildCommand({
+      name: 'findLink',
+      type: 'finder',
+      locatorTemplate: stringTemplates.css`
+        a[id="${'locator'}"],
+        a:contains("${'locator'}")
+      `
+    }),
+    buildCommand({
       name: 'findField',
       type: 'finder',
       locatorTemplate: stringTemplates.css`
