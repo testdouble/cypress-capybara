@@ -50,7 +50,8 @@ module.exports = {
         input[type=image][id="${'locator'}"],
         input[type=button][title*="${'locator'}"],
         input[type=button][value*="${'locator'}"],
-        input[type=button][id="${'locator'}"]
+        input[type=button][id="${'locator'}"],
+        *[role=button]:contains("${'locator'}")
       `
     })
   ]
