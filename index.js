@@ -19,6 +19,7 @@ module.exports = {
       locatorTemplate: stringTemplates.css`
         input[type!=submit][type!=image][type!=hidden][id="${'locator'}"],
         input[type!=submit][type!=image][type!=hidden][name="${'locator'}"],
+        input[type!=submit][type!=image][type!=hidden][placeholder="${'locator'}"],
         textarea[id="${'locator'}"],
         textarea[name="${'locator'}"],
         select[id="${'locator'}"],
