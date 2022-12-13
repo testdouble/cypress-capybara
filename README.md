@@ -1,5 +1,7 @@
 # cypress-capybara
 
+**Warning: This library does not work for Cypress version 12 or higher. It is not currently maintained.**
+
 [![CircleCI](https://circleci.com/gh/testdouble/cypress-capybara/tree/main.svg?style=svg)](https://circleci.com/gh/testdouble/cypress-capybara/tree/main)
 
 An abbreviated port of [Capybara](https://github.com/teamcapybara/capybara)'s
