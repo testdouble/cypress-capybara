@@ -7,7 +7,8 @@
     "style": "standard --fix",
     "start": "http-server node_modules/cypress-example-kitchensink/app -c-1 --silent -p 8081",
     "test": "cypress run",
-    "ci": "npm run style && run-p --race start test"
+    "ci": "npm run style && run-p --race start test",
+    "upgrade": "npx ncu --upgrade && rm -f package-lock.json && rm -rf node_modules && npm install" 
   },
   "repository": {
     "type": "git",
